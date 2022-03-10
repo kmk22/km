@@ -23,13 +23,13 @@ stages:
         containerRegistry: 'HEALTH CARE'
         repository: '$(imageRepo)'
         command: 'buildAndPush'
-        Dockerfile: '(Build.SourcesDirectory)/Dockerfile'
+        Dockerfile: 'Dockerfile'
         tags: |
           $(tag)
           latest
     - task: PublishPipelineArtifact@1
       inputs:
-        targetPath: '$(Build.SourcesDirectory)/Dockerfile'
+        targetPath: 'Dockerfile'
         artifact: 'manifests'
         publishLocation: 'pipeline'
 
